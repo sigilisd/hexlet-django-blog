@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from hexlet_django_blog import views
+from .views import IndexPageView
 
-urlpatterns = [
-    path("", views.index), # обработка адреса главной страницы
+urlpatterns = [ 
+    path("", IndexPageView.as_view(), name="index"),
+    # path("", views.index), # обработка адреса главной страницы
     path("about/", views.about),
     path("articles/", include("hexlet_django_blog.article.urls")),
     path('admin/', admin.site.urls),
