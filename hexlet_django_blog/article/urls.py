@@ -4,4 +4,5 @@ from .views import IndexView
 
 urlpatterns = [
     path("", IndexView.as_view()),
+    path('<str:tags>/<int:article_id>/', views.article),
 ]

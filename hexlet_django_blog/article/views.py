@@ -6,6 +6,9 @@ class IndexView(View):
     def get(self, request, *args, **kwargs):
         return HttpResponse("Hello, World!")
 
+def article(request, tags, article_id):
+    return HttpResponse(f"Статья номер {article_id}. Тег {tags}")
+    
 # def index(request):
 #     return render(
 #         request,
