@@ -60,6 +60,14 @@ class ArticleFormEditView(View):
             request, "articles/update.html", {"form": form, "article_id": article_id}
     )
 
+class ArticleFormDeleteView(View):
+    def post(self, request, *args, **kwargs):
+        article_id = kwargs.get("id")
+        article = Article.objects.get(id=article_id)
+        if article:
+            article.delete()
+        return redirect("articles")
+
 class ArticleCommentFormView(View):
     def post(self, request, *args, **kwargs):
         form = ArticleCommentForm(request.POST)  # Получаем данные формы из запроса
