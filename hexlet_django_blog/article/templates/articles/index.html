@@ -4,4 +4,5 @@
     {% for article in articles %}
     <a href="{% url 'article_detail' id=article.id %}">{{ article.name }}</a>
     {% endfor %}
+    <a href="{% url 'articles_create'%}">Создать форму</a>
 {% endblock %}
